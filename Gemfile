@@ -45,3 +45,23 @@ group :development do
   gem 'spring'
 end
 
+
+gem 'bootstrap-sass'
+gem 'devise'
+gem 'gibbon'
+gem 'high_voltage'
+gem 'pg'
+gem 'sucker_punch'
+
+group :development do
+  gem 'better_errors'
+  gem 'hub', :require=>nil
+  gem 'quiet_assets'
+  gem 'rails_apps_pages'
+  gem 'rails_layout'
+end
+
+group :production do
+  gem 'rails_12factor'
+end
+
