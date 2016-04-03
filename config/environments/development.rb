@@ -6,15 +6,13 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  config.active_record.raise_in_transactional_callbacks = true
   # Do not eager load code on boot.
   config.eager_load = false
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -27,6 +25,8 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.serve_static_files = true
+  config.assets.initialize_on_precompile = false
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -37,9 +37,11 @@ Rails.application.configure do
     password: Rails.application.secrets.email_provider_password
   }
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000', port: 3000}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
+  # Don't care if the mailer can't send.
+
   # Send email in development mode?
   config.action_mailer.perform_deliveries = true
 
