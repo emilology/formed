@@ -51,11 +51,6 @@ test:
   template: template0
 
 production:
-  adapter:  postgresql
-  host:     localhost
-  encoding: unicode
-  database: rails-prelaunch-signup_production
-  pool:     5
-  username: rails-prelaunch-signup
-  password:
-  template: template0
+  ENV['DATABASE_URL']
+  encoding: utf8
+  pool: 15
