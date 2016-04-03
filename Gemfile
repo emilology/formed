@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'railties'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'strong_parameters'
 group :development, :test do
   gem 'byebug'
 end
