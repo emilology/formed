@@ -75,4 +75,24 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  # Loads and returns the entire raw configuration of database from
+  # values stored in `config/database.yml`.
+  def database_configuration
+    path = paths["config/database"].existent.first
+    yaml = Pathname.new(path) if path
+
+    config = if yaml && yaml.exist?
+      require "yaml"
+      require "erb"
+      YAML.load(ERB.new(yaml.read).result) || {}
+    elsif ENV['DATABASE_URL']
+      # Value from ENV['DATABASE_URL'] is set to default database connection
+      # by Active Record.
+      {}
+    else
+      raise "Could not load database configuration. No such file - #{paths["config/database"].instance_variable_get(:@paths)}"
+    end
+
 end
