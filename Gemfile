@@ -9,7 +9,6 @@ gem 'jquery-rails'
 gem 'railties'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'strong_parameters'
 group :development, :test do
   gem 'byebug'
 end
@@ -18,7 +17,6 @@ group :development do
   gem 'spring'
 end
 gem 'bootstrap-sass'
-gem 'devise'
 gem 'gibbon'
 gem 'high_voltage'
 gem 'pg'
