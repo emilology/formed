@@ -94,5 +94,5 @@ Rails.application.configure do
     else
       raise "Could not load database configuration. No such file - #{paths["config/database"].instance_variable_get(:@paths)}"
     end
-
+  end
 end
